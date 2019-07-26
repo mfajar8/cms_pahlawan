@@ -19,13 +19,13 @@ class User extends MY_Controller
       $datafield=$this->User_model->get_field();//panggil ke modell
 
       $data = array(
-        'contain_view' => 'Admin/user/user_list',
-        'sidebar'=>'Admin/sidebar',
-        'css'=>'Admin/crudassets/css',
-        'script'=>'Admin/crudassets/script',
+        'contain_view' => 'admin/user/user_list',
+        'sidebar'=>'admin/sidebar',
+        'css'=>'admin/crudassets/css',
+        'script'=>'admin/crudassets/script',
         'datauser'=>$datauser,
         'datafield'=>$datafield,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'user',
         'controller'=>'user'
        );
@@ -35,12 +35,12 @@ class User extends MY_Controller
 
     public function create(){
       $data = array(
-        'contain_view' => 'Admin/user/user_form',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/user/create_action',
-        'module'=>'Admin',
+        'contain_view' => 'admin/user/user_form',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/user/create_action',
+        'module'=>'admin',
         'titlePage'=>'user',
         'controller'=>'user'
        );
@@ -50,13 +50,13 @@ class User extends MY_Controller
     public function edit($id){
       $dataedit=$this->User_model->get_by_id($id);
       $data = array(
-        'contain_view' => 'Admin/user/user_edit',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/user/update_action',
+        'contain_view' => 'admin/user/user_edit',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/user/update_action',
         'dataedit'=>$dataedit,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'user',
         'controller'=>'user'
        );
@@ -79,7 +79,7 @@ class User extends MY_Controller
 
             $this->User_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Admin/user'));
+            redirect(site_url('admin/user'));
         }
     }
 
@@ -100,7 +100,7 @@ class User extends MY_Controller
 
             $this->User_model->update($this->input->post('id_user', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('Admin/user'));
+            redirect(site_url('admin/user'));
         }
     }
 
@@ -111,10 +111,10 @@ class User extends MY_Controller
         if ($row) {
             $this->User_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Admin/user'));
+            redirect(site_url('admin/user'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Admin/user'));
+            redirect(site_url('admin/user'));
         }
     }
 

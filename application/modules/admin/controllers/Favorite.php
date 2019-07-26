@@ -19,13 +19,13 @@ class Favorite extends MY_Controller
       $datafield=$this->Favorite_model->get_field();//panggil ke modell
 
       $data = array(
-        'contain_view' => 'Admin/favorite/favorite_list',
-        'sidebar'=>'Admin/sidebar',
-        'css'=>'Admin/crudassets/css',
-        'script'=>'Admin/crudassets/script',
+        'contain_view' => 'admin/favorite/favorite_list',
+        'sidebar'=>'admin/sidebar',
+        'css'=>'admin/crudassets/css',
+        'script'=>'admin/crudassets/script',
         'datafavorite'=>$datafavorite,
         'datafield'=>$datafield,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'favorite',
         'controller'=>'favorite'
        );
@@ -35,12 +35,12 @@ class Favorite extends MY_Controller
 
     public function create(){
       $data = array(
-        'contain_view' => 'Admin/favorite/favorite_form',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/favorite/create_action',
-        'module'=>'Admin',
+        'contain_view' => 'admin/favorite/favorite_form',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/favorite/create_action',
+        'module'=>'admin',
         'titlePage'=>'favorite',
         'controller'=>'favorite'
        );
@@ -50,13 +50,13 @@ class Favorite extends MY_Controller
     public function edit($id){
       $dataedit=$this->Favorite_model->get_by_id($id);
       $data = array(
-        'contain_view' => 'Admin/favorite/favorite_edit',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/favorite/update_action',
+        'contain_view' => 'admin/favorite/favorite_edit',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/favorite/update_action',
         'dataedit'=>$dataedit,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'favorite',
         'controller'=>'favorite'
        );
@@ -78,7 +78,7 @@ class Favorite extends MY_Controller
 
             $this->Favorite_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Admin/favorite'));
+            redirect(site_url('admin/favorite'));
         }
     }
 
@@ -98,7 +98,7 @@ class Favorite extends MY_Controller
 
             $this->Favorite_model->update($this->input->post('id_favorite', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('Admin/favorite'));
+            redirect(site_url('admin/favorite'));
         }
     }
 
@@ -109,10 +109,10 @@ class Favorite extends MY_Controller
         if ($row) {
             $this->Favorite_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Admin/favorite'));
+            redirect(site_url('admin/favorite'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Admin/favorite'));
+            redirect(site_url('admin/favorite'));
         }
     }
 

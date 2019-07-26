@@ -19,13 +19,13 @@ class Pahlawan extends MY_Controller
       $datafield=$this->Pahlawan_model->get_field();//panggil ke modell
 
       $data = array(
-        'contain_view' => 'Admin/pahlawan/pahlawan_list',
-        'sidebar'=>'Admin/sidebar',
-        'css'=>'Admin/crudassets/css',
-        'script'=>'Admin/crudassets/script',
+        'contain_view' => 'admin/pahlawan/pahlawan_list',
+        'sidebar'=>'admin/sidebar',
+        'css'=>'admin/crudassets/css',
+        'script'=>'admin/crudassets/script',
         'datapahlawan'=>$datapahlawan,
         'datafield'=>$datafield,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'pahlawan',
         'controller'=>'pahlawan'
        );
@@ -35,12 +35,12 @@ class Pahlawan extends MY_Controller
 
     public function create(){
       $data = array(
-        'contain_view' => 'Admin/pahlawan/pahlawan_form',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/pahlawan/create_action',
-        'module'=>'Admin',
+        'contain_view' => 'admin/pahlawan/pahlawan_form',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/pahlawan/create_action',
+        'module'=>'admin',
         'titlePage'=>'pahlawan',
         'controller'=>'pahlawan'
        );
@@ -50,13 +50,13 @@ class Pahlawan extends MY_Controller
     public function edit($id){
       $dataedit=$this->Pahlawan_model->get_by_id($id);
       $data = array(
-        'contain_view' => 'Admin/pahlawan/pahlawan_edit',
-        'sidebar'=>'Admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
-        'css'=>'Admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
-        'script'=>'Admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
-        'action'=>'Admin/pahlawan/update_action',
+        'contain_view' => 'admin/pahlawan/pahlawan_edit',
+        'sidebar'=>'admin/sidebar',//Ini buat menu yang ditampilkan di module admin {DIKIRIM KE TEMPLATE}
+        'css'=>'admin/crudassets/css',//Ini buat kirim css dari page nya  {DIKIRIM KE TEMPLATE}
+        'script'=>'admin/crudassets/script',//ini buat javascript apa aja yang di load di page {DIKIRIM KE TEMPLATE}
+        'action'=>'admin/pahlawan/update_action',
         'dataedit'=>$dataedit,
-        'module'=>'Admin',
+        'module'=>'admin',
         'titlePage'=>'pahlawan',
         'controller'=>'pahlawan'
        );
@@ -87,7 +87,7 @@ class Pahlawan extends MY_Controller
 
             $this->Pahlawan_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('Admin/pahlawan'));
+            redirect(site_url('admin/pahlawan'));
         }
     }
 
@@ -116,7 +116,7 @@ class Pahlawan extends MY_Controller
 
             $this->Pahlawan_model->update($this->input->post('id_pahlawan', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('Admin/pahlawan'));
+            redirect(site_url('admin/pahlawan'));
         }
     }
 
@@ -127,10 +127,10 @@ class Pahlawan extends MY_Controller
         if ($row) {
             $this->Pahlawan_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('Admin/pahlawan'));
+            redirect(site_url('admin/pahlawan'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('Admin/pahlawan'));
+            redirect(site_url('admin/pahlawan'));
         }
     }
 
