@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pahlawanku',
+	'hostname' => '68.183.187.227',
+	'username' => 'kl_remote',
+	'password' => 'kl_remote100%',
+	'database' => 'akb_fajar',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
