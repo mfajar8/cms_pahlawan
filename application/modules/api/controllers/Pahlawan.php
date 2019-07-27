@@ -18,10 +18,14 @@
        $kategori=$_GET['kategori'];
        $loadDb=$this->db->query("SELECT * FROM pahlawan WHERE kategori = '$kategori' ORDER BY nama ASC");//database yang akan di load
 
+     }else if(isset($_GET['nama'])){
+       $nama=$_GET['nama'];
+       $loadDb=$this->db->query("SELECT * FROM pahlawan WHERE nama LIKE '%$nama%' ORDER BY nama ASC");
+       //database yang akan di load
      }else{
-       $loadDb=$this->db->query("SELECT * FROM pahlawan ORDER BY nama ASC");//database yang akan di load
-
+       $loadDb=$this->db->query("SELECT * FROM pahlawan ORDER BY nama ASC");
      }
+
      // if(isset($_GET['params'])){//params yang akan dicek
 
        //default fungsi dari : getdata($table,$where=null,$limit=9,$offset=0){
@@ -55,5 +59,4 @@
    }
 
 }
-
  ?>
